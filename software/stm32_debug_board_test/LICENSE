@@ -1,0 +1,36 @@
+STM32 Debug Board test firmware — licence scope
+
+Original application code and original project-specific software configuration:
+Copyright (c) 2026 E. Watson. MIT License (full text below).
+
+STM32CubeMX-generated code and templates retain the original copyright notices
+and applicable STMicroelectronics terms. The MIT terms are intended for
+redistribution of generated code only insofar as the applicable ST terms
+permit this; this notice does not grant rights beyond those permissions.
+Third-party drivers and CMSIS are not relicensed by this file. Refer to:
+  Drivers/CMSIS/LICENSE.txt
+  Drivers/CMSIS/Device/ST/STM32F4xx/LICENSE.txt
+  Drivers/STM32F4xx_HAL_Driver/LICENSE.txt
+and to the individual source file notices.
+
+MIT License
+
+Copyright (c) 2026 E. Watson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

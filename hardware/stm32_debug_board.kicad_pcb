@@ -11,8 +11,11 @@
 		(title "STM32 Debug Board")
 		(date "2026-10-31")
 		(rev "1.0")
-		(company "Watronix Ltd.")
-		(comment 1 "License: CERN Open Hardware License v2 or Hardware License: CC-BY-SA 4.0")
+		(company "E. Watson")
+		(comment 1 "Several debug interfaces exposed for development purposes")
+		(comment 2 "SPDX-License-Identifier: CERN-OHL-P-2.0")
+		(comment 3 "Copyright (c) 2026 E. Watson")
+		(comment 4 "Open-source hardware")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -96,7 +99,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755757f)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)

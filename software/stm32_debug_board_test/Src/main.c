@@ -13,6 +13,10 @@
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
+  * Original application code:
+  * Copyright (c) 2026 E. Watson.
+  * Licensed under the MIT License.
+  *
   ******************************************************************************
   */
 /* USER CODE END Header */

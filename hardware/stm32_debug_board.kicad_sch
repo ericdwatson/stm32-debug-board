@@ -8,9 +8,11 @@
 		(title "STM32 Debug Board")
 		(date "2026-10-31")
 		(rev "1.0")
-		(company "Watronix Ltd.")
-		(comment 1 "License: CERN Open Hardware License v2 or Hardware License: CC-BY-SA 4.0")
-		(comment 2 "Several debug interfaces exposed for development purposes")
+		(company "E. Watson")
+		(comment 1 "Several debug interfaces exposed for development purposes")
+		(comment 2 "SPDX-License-Identifier: CERN-OHL-P-2.0")
+		(comment 3 "Copyright (c) 2026 E. Watson")
+		(comment 4 "Open-source hardware")
 	)
 	(lib_symbols
 		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"

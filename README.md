@@ -216,4 +216,27 @@ V1.0 hardware and firmware validation completed on 12/11/2026. The PCB revision 
 
 ## Licence
 
-Project licensing is pending final review before public release. Third-party software, libraries and documentation are subject to their respective licence terms.
+## Licence
+
+Copyright (c) 2026 E. Watson.
+
+This project is intended for public use and is released under the following licences:
+
+| Project Content | Licence |
+|---|---|
+| Original hardware design and manufacturing files | [CERN-OHL-P-2.0](LICENSES/CERN-OHL-P-2.0.txt) |
+| Original application firmware | [MIT](LICENSES/MIT.txt) |
+| Original documentation and photographs | [CC BY 4.0](LICENSES/CC-BY-4.0.txt) |
+| Third-party libraries, drivers and 3D models | Their respective licences |
+
+The original hardware and application software may be used, modified and redistributed for personal or commercial purposes, subject to the applicable licence conditions.
+
+Third-party components retain their original copyright notices and licensing terms.
+
+For further information, see:
+
+- [Project Licensing](LICENSE.md)
+- [Third-Party Notices](THIRD_PARTY_NOTICES.md)
+- [Full Licence Texts](LICENSES/)
+
+This project is provided without warranty, subject to the terms of the applicable licences.
