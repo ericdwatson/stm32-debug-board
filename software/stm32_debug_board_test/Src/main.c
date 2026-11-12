@@ -90,6 +90,22 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  uint8_t startupMessage[] = "STM32 Debug Board V1.0\r\n"
+                             "Firmware started\r\n";
+
+  uint8_t heartbeatMessage[] = "Running...\r\n";
+
+  HAL_UART_Transmit(&huart3,
+                    startupMessage,
+                    sizeof(startupMessage) - 1,
+                    100);
+
+  uint32_t lastLedTick = HAL_GetTick();
+  uint32_t lastHeartbeatTick = HAL_GetTick();
+
+  uint8_t ledState = 0;
+  uint8_t rxByte;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,17 +116,45 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-    /* LED1 on, LED2 off */
-    HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+    uint32_t currentTick = HAL_GetTick();
 
-    HAL_Delay(500);
+    /* Alternate LEDs every 500 ms */
+    if ((currentTick - lastLedTick) >= 500U)
+    {
+      lastLedTick = currentTick;
 
-    /* LED1 off, LED2 on */
-    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+      if (ledState == 0)
+      {
+        HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
 
-    HAL_Delay(500);
+        ledState = 1;
+      }
+      else
+      {
+        HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+
+        ledState = 0;
+      }
+    }
+
+    /* Transmit heartbeat every second */
+    if ((currentTick - lastHeartbeatTick) >= 1000U)
+    {
+      lastHeartbeatTick = currentTick;
+
+      HAL_UART_Transmit(&huart3,
+                        heartbeatMessage,
+                        sizeof(heartbeatMessage) - 1,
+                        100);
+    }
+
+    /* Receive and echo a character */
+    if (HAL_UART_Receive(&huart3, &rxByte, 1, 0) == HAL_OK)
+    {
+      HAL_UART_Transmit(&huart3, &rxByte, 1, 100);
+    }
   }
   /* USER CODE END 3 */
 }
