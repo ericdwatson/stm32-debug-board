@@ -95,6 +95,8 @@ int main(void)
 
   uint8_t heartbeatMessage[] = "Running...\r\n";
 
+  const char swoMessage[] = "SWO: Running...\r\n";
+
   HAL_UART_Transmit(&huart3,
                     startupMessage,
                     sizeof(startupMessage) - 1,
@@ -160,6 +162,12 @@ int main(void)
                         heartbeatMessage,
                         sizeof(heartbeatMessage) - 1,
                         100);
+
+      /* SWO heartbeat */
+      for (uint32_t i = 0; i < sizeof(swoMessage) - 1; i++)
+      {
+        ITM_SendChar(swoMessage[i]);
+      }
     }
 
     /* Receive and echo a character */
