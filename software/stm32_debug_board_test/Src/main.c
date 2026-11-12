@@ -106,6 +106,18 @@ int main(void)
   uint8_t ledState = 0;
   uint8_t rxByte;
 
+  /* User button variables */
+  GPIO_PinState lastButtonState =
+      HAL_GPIO_ReadPin(USER_BUTTON_GPIO_Port, USER_BUTTON_Pin);
+
+  GPIO_PinState stableButtonState = lastButtonState;
+
+  uint32_t lastButtonTick = HAL_GetTick();
+
+  uint8_t buttonPressedMessage[] = "Button pressed\r\n";
+  uint8_t buttonReleasedMessage[] = "Button released\r\n";
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -154,6 +166,42 @@ int main(void)
     if (HAL_UART_Receive(&huart3, &rxByte, 1, 0) == HAL_OK)
     {
       HAL_UART_Transmit(&huart3, &rxByte, 1, 100);
+    }
+
+
+    /* Read user button */
+    GPIO_PinState buttonState =
+        HAL_GPIO_ReadPin(USER_BUTTON_GPIO_Port, USER_BUTTON_Pin);
+
+    /* Restart debounce timer whenever the input changes */
+    if (buttonState != lastButtonState)
+    {
+      lastButtonState = buttonState;
+      lastButtonTick = currentTick;
+    }
+
+    /* Accept the new state after 20 ms of stability */
+    if ((currentTick - lastButtonTick) >= 20U)
+    {
+      if (buttonState != stableButtonState)
+      {
+        stableButtonState = buttonState;
+
+        if (stableButtonState == GPIO_PIN_RESET)
+        {
+          HAL_UART_Transmit(&huart3,
+                            buttonPressedMessage,
+                            sizeof(buttonPressedMessage) - 1,
+                            100);
+        }
+        else
+        {
+          HAL_UART_Transmit(&huart3,
+                            buttonReleasedMessage,
+                            sizeof(buttonReleasedMessage) - 1,
+                            100);
+        }
+      }
     }
   }
   /* USER CODE END 3 */
