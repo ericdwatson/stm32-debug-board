@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "FTSH-107-01-L-DV-K-A") (type "KiCad") (uri "${KIPRJMOD}/libs/symbols/FTSH-107-01-L-DV-K-A.kicad_sym") (options "") (descr ""))
+	(lib (name "TS-1187A-B-A-B") (type "KiCad") (uri "${KIPRJMOD}/libs/symbols/TS-1187A-B-A-B.kicad_sym") (options "") (descr ""))
+)

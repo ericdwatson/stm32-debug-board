@@ -1,0 +1,46 @@
+# ============================================================
+# KiCad
+# ============================================================
+
+# Local project settings
+*.kicad_prl
+
+# Backup files and directories
+*-backups/
+*.kicad_pcb-bak
+*.sch-bak
+*.pro-bak
+*.bak
+
+# Lock files
+*.lck
+
+# Local history directories (including nested directories)
+.history/
+
+# ============================================================
+# STM32CubeIDE / STM32CubeMX
+# ============================================================
+
+# Eclipse workspace metadata
+.metadata/
+
+# Firmware build output directories
+/software/**/Debug/
+/software/**/Release/
+
+# ============================================================
+# Operating system files
+# ============================================================
+
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ============================================================
+# Temporary files
+# ============================================================
+
+*.tmp
+*.swp
+*~
